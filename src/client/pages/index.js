@@ -7,6 +7,9 @@ import classNames from 'classnames/bind'
 import { setServerRenderClock } from '@store/modules/clock'
 import * as clockActions from '@store/modules/clock'
 
+import UIButton_New from '@components/common/UIButton_New'
+import { mailSupport } from '@lib/support'
+
 import Examples from '@components/examples'
 import 'babel-polyfill'
 
@@ -36,11 +39,21 @@ class Index extends React.Component {
     clearInterval(this.timer)
   }
 
+  handleEmail = async() => {
+    console.log('handleEmail');
+    const recv = await mailSupport( 'doo8866@numixent.com' , 'hihihi');
+    console.log(recv);
+  }
+
   render() {
 
     return (
       <div style={{background: 'linear-gradient(to right bottom, #A0A0A0, #D0D0D0)', minHeight: '100vh'}}>
         <Examples />
+
+        <UIButton_New onClick={this.handleEmail}>
+          메일 보내기
+        </UIButton_New>
       </div>
     )  
   }

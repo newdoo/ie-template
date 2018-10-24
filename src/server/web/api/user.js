@@ -41,5 +41,10 @@ const follower = async(msg) => {
   return {result: 'ok'};
 }
 
-const handler = { create, detail, login, chatting, follower, info }
+const mail = async(msg) => {
+
+  return {result: 'ok'};
+}
+
+const handler = { create, detail, login, chatting, follower, info, mail }
 module.exports = recv => handler[recv.type](recv.data)
